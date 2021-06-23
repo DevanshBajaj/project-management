@@ -1,0 +1,42 @@
+.newProject {
+    background-color: #100F0F;
+    padding: 1rem;
+    margin: 2rem auto;
+    width: 50rem;
+    max-width: 95%;
+    border-radius: 12px;
+    text-align: center;
+    box-shadow: 0 1px 8px rgba(0, 0, 0, 0.25);
+  }
+  
+  .newProject button {
+    font: inherit;
+    cursor: pointer;
+    padding: 1rem 2rem;
+    border: 1px solid #8739F9;
+    background-color: #8739F9;
+    color: white;
+    border-radius: 12px;
+    margin-right: 1rem;
+  }
+  
+  .newProject button:hover,
+  .newProject button:active {
+    background-color: #8739F9;
+    box-shadow: 0 0 0 2px #560dc4;
+    transition: box-shadow 0.3s ease-in-out;
+  }
+  .newProject button:focus {
+    transition: ease-out;
+  }
+  
+  .newProject button.alternative {
+    color: #220131;
+    border-color: transparent;
+    background-color: transparent;
+  }
+  
+  .newProject button.alternative:hover,
+  .newProject button.alternative:active {
+    background-color: #ddb3f8;
+  }
