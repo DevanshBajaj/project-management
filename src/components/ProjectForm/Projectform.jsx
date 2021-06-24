@@ -2,13 +2,13 @@ import React, { useState } from "react";
 import Spinner from './Spinner.svg';
 import classes from "./ProjectForm.module.css";
 
+
+
 const ProjectForm = (props) => {
 	const [enteredTitle, setEnteredTitle] = useState("");
 	const [enteredDescription, setEnteredDescription] = useState("");
-	const [selectedImage,  setSelectedImage] = useState({
-		image: '',
-		uploading: false
-	})
+	const [selectedImage,  setSelectedImage] = useState()
+	const [isUploaded, setisUploaded] = useState(false)
 
 	const titleChangeHandler = (event) => {
 		setEnteredTitle(event.target.value);
@@ -18,37 +18,36 @@ const ProjectForm = (props) => {
 	};
 
 	const imageChangedHandler = (event) => {
-		setSelectedImage({image: event.target.files[0]})
+		setSelectedImage(event.target.files[0])
 	};
 
-	const validateImageHandler = (event) => {
-		setEnteredImage.image(event.target.files)
+	const uploadHandler = () => { 
+		setisUploaded(true)
+		console.log(selectedImage)
 	}
 
-	const uploadHandler = () => { 
-		if(selectedImage.image.type === 'image/png' || selectedImage.image.type ===  'image/jpeg' ) {
-			setSelectedImage({uploading: true})
-		} else {
-			setSelectedImage({uploading: false})
-		};
-	}
-	
+	const ImageThumb = ({ viewImage }) => {
+		return <img style={{height:'12rem', width:'12rem'}} src={URL.createObjectURL(viewImage)} alt={viewImage.name} />;
+	};
+
 	const submitHandler = (event) => {
 		event.preventDefault();
 
 		const projectData = {
 			title: enteredTitle,
 			description: enteredDescription,
+			image: selectedImage.name
 		};
+
 		
         props.onSaveProjectData(projectData);
 		setEnteredTitle("");
 		setEnteredDescription("");
-		setSelectedImage({
-			image: null,
-			uploading: false
-		});
+		setSelectedImage("");
+		setisUploaded(false)
 	};
+
+	
 
 	return (
 		<form onSubmit={submitHandler}>
@@ -70,21 +69,28 @@ const ProjectForm = (props) => {
 					/>
 				</div>
 				<div className={classes.newProject__control}>
-					<label>Upload Image</label>
+					<label htmlFor="img" >Upload Image</label>
 					<input
 						type="file"
+						name="img" accept="image/*"
 						onChange={imageChangedHandler}
 					/>
-					{selectedImage.uploading == true ? (
+					{isUploaded == true ? (
 						<div>
 							<p> file uploaded</p>
+							<p>Filename: {selectedImage.name}</p>
+							<p>File type: {selectedImage.type}</p>
+							<p>File size: {selectedImage.size} bytes</p>
+							{selectedImage && <ImageThumb viewImage={selectedImage} />}
 						</div>
 					) : (
 						<p>upload image file</p>
 					)}
 					<button type="button" onClick={uploadHandler}>upload</button>
+					
 				</div>
 			</div>
+
 			<div className={classes.newProject__actions}>
 				<button type="button" onClick={props.onCancel}>Cancel</button>
 				<button type="submit">Add Project</button>
