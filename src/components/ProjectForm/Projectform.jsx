@@ -1,34 +1,52 @@
 import React, { useState } from "react";
-import Spinner from './Spinner.svg';
 import classes from "./ProjectForm.module.css";
-
-
+import Button from '../UI/Button';
 
 const ProjectForm = (props) => {
 	const [enteredTitle, setEnteredTitle] = useState("");
+	const [titleIsValid, setTitleIsValid] = useState()
 	const [enteredDescription, setEnteredDescription] = useState("");
+	const [descriptionIsValid, setDescriptionIsValid] = useState();
 	const [selectedImage,  setSelectedImage] = useState()
 	const [isUploaded, setisUploaded] = useState(false)
+	const [formIsValid, setFormIsValid] = useState(false);
 
 	const titleChangeHandler = (event) => {
 		setEnteredTitle(event.target.value);
+
+		setFormIsValid(
+			event.target.value.trim().length > 1 && enteredDescription.trim().length > 15
+		);
 	};
+
 	const descriptionChangeHandler = (event) => {
 		setEnteredDescription(event.target.value);
+
+		setFormIsValid(
+			event.target.value.trim().length > 15 && enteredTitle.trim().length > 1
+		);
 	};
 
-	const imageChangedHandler = (event) => {
-		setSelectedImage(event.target.files[0])
-	};
-
-	const uploadHandler = () => { 
-		setisUploaded(true)
+	const validateTitleHandler = () => {
+		setTitleIsValid(enteredTitle.trim().length > 1)
 		console.log(selectedImage)
 	}
+	const validateDescription = () => {
+		setDescriptionIsValid(enteredDescription.trim().length > 15)
+	}
 
-	const ImageThumb = ({ viewImage }) => {
-		return <img style={{height:'12rem', width:'12rem'}} src={URL.createObjectURL(viewImage)} alt={viewImage.name} />;
+	const imageChangedHandler = (event) => {
+		let reader = new FileReader();
+    	reader.onload = function(e) {
+      		setSelectedImage(e.target.result);
+    	};
+    	reader.readAsDataURL(event.target.files[0]);
 	};
+
+
+	const uploadHandler = (event) => { 
+		setisUploaded(true)
+	}
 
 	const submitHandler = (event) => {
 		event.preventDefault();
@@ -36,7 +54,7 @@ const ProjectForm = (props) => {
 		const projectData = {
 			title: enteredTitle,
 			description: enteredDescription,
-			image: selectedImage.name
+			image: selectedImage
 		};
 
 		
@@ -51,22 +69,38 @@ const ProjectForm = (props) => {
 
 	return (
 		<form onSubmit={submitHandler}>
+			
 			<div className={classes.newProject__controls}>
+
 				<div className={classes.newProject__control}>
+					<div
+						className={`${classes.control} ${
+							titleIsValid === false ? classes.invalid : ''
+						}`}
+        			>
 					<label>Title</label>
 					<input
 						type="text"
 						value={enteredTitle}
 						onChange={titleChangeHandler}
+						onBlur={validateTitleHandler}
 					/>
+					</div>
 				</div>
 				<div className={classes.newProject__control}>
+					<div
+						className={`${classes.control} ${
+							descriptionIsValid === false ? classes.invalid : ''
+						}`}
+        			>
 					<label>description</label>
 					<input
 						type="text"
 						value={enteredDescription}
 						onChange={descriptionChangeHandler}
+						onBlur={validateDescription}
 					/>
+					</div>
 				</div>
 				<div className={classes.newProject__control}>
 					<label htmlFor="img" >Upload Image</label>
@@ -78,22 +112,18 @@ const ProjectForm = (props) => {
 					{isUploaded == true ? (
 						<div>
 							<p> file uploaded</p>
-							<p>Filename: {selectedImage.name}</p>
-							<p>File type: {selectedImage.type}</p>
-							<p>File size: {selectedImage.size} bytes</p>
-							{selectedImage && <ImageThumb viewImage={selectedImage} />}
+							<img style={{height:"250px", width:"280px"}} src={selectedImage} alt=""></img>
 						</div>
 					) : (
-						<p>upload image file</p>
+						<p style={{color: 'red'}}>Please upload image file</p>
 					)}
-					<button type="button" onClick={uploadHandler}>upload</button>
-					
+						<Button type="button" onClick={uploadHandler}>upload</Button>
 				</div>
 			</div>
 
 			<div className={classes.newProject__actions}>
-				<button type="button" onClick={props.onCancel}>Cancel</button>
-				<button type="submit">Add Project</button>
+				<Button type="button" onClick={props.onCancel}>Cancel</Button>
+				<Button type="submit" className={classes.btn} disabled={!formIsValid}>Add Project</Button>
 			</div> 
 		</form>
 	);
