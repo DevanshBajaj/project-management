@@ -40,11 +40,28 @@ function App() {
     console.log(...projects)
   }
 
+  const deleteProjectHandler = projectId => {
+    setProjects((prevProjects) => {
+      const updatedProjects = prevProjects.filter(project => project.id !== projectId)
+      return updatedProjects;
+    });
+  };
+
+  let content = (
+    <p style={{ textAlign: 'center' }}>No Projects found. Maybe add one?</p>
+  );
+
+  if (projects.length > 0) {
+    content = (
+      <ProjectList items={projects} onDeleteProject={deleteProjectHandler} />
+    );
+  }
+
   const Home = (props) => {
     return (
       <div>
         <NewProject onAddProject={addProjectHandler} />
-        <ProjectList items={projects} />
+        {content}
       </div>
     )
   }
@@ -52,7 +69,7 @@ function App() {
   const Projects = (props) => {
     return (
       <div>
-          <ProjectList items={projects} />
+        {content}
       </div>)
   }
 
