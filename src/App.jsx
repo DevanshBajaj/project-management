@@ -4,7 +4,6 @@ import { BrowserRouter, Switch, Route } from 'react-router-dom';
 import Navbar from './components/Navbar/Navbar';
 import ProjectList from './components/Project/ProjectList';
 import NewProject from './components/ProjectForm/NewProject';
-
 import './App.css';
 
 const DUMMY_PROJECTS = [
@@ -12,19 +11,19 @@ const DUMMY_PROJECTS = [
     id: "e1",
     title: "Pokedex",
     description: 'Made with React',
-    image: 'ball.png'
+    image: ''
   },
   {
     id: "e3",
     title: "streaming site",
     description: 'Made with React',
-    image: 'ball.png'
+    image: ''
   },
   {
     id: "e4",
     title: "portfolio",
     description: 'Made with CSS/JS',
-    image: 'ball.png'
+    image: ''
   },
 ];
 

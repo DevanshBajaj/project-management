@@ -7,10 +7,10 @@ const ProjectItem = (props) => {
 
     return(
         <Card className={classes.projectItem}>
-            <div className={classes.projectItem__Desc}>
+            <div className={classes.projectItem__description}>
                 <h1>{props.title}</h1>
                 <p>{props.description}</p>
-                <p>{props.image}</p>
+                <img style={{height:"40%", width:"50%"}} src={props.image} alt="not found" />
             </div>
         </Card>
     )
