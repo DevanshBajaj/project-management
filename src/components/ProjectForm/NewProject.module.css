@@ -29,6 +29,17 @@
   .newProject button:focus {
     transition: ease-out;
   }
+
+  .newProject 
+  button:disabled,
+  button:focus:disabled,
+  button:hover:disabled,
+  button:active:disabled {
+    background: #ccc;
+    border-color: #ccc;
+    color: #666666;
+    cursor: not-allowed;
+  }
   
   .newProject button.alternative {
     color: #220131;

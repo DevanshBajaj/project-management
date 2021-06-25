@@ -3,3 +3,7 @@
     width: 50rem;
     max-width: 95%;
 }
+
+.projectList ul {
+    padding: 0rem 0rem;
+}

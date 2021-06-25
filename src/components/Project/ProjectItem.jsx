@@ -11,7 +11,7 @@ const ProjectItem = (props) => {
 
     return(
         <Card className={classes.projectItem}>
-            <li className={classes.projectItem__description} id={props.id} onClick={deleteProject}>
+            <li className={classes.projectItem__description} id={props.id}>
                 <h1>{props.title}</h1>
                 <p>{props.description}</p>
                 {props.image ? (
@@ -19,7 +19,7 @@ const ProjectItem = (props) => {
                 ) : (
                     <p>No image</p>
                 )}
-                <Button onClick={deleteProject}>Delete Item</Button>
+                <Button style={{background: 'red'}} onClick={deleteProject}>Delete Item</Button>
             </li>
         </Card>
     )
