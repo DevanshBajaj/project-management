@@ -1,13 +1,12 @@
 import React from 'react';
-import classes from './ProjectList.module.css'
-
 import ProjectItem from './ProjectItem'
+import classes from './ProjectList.module.css'
 
 const ProjectList = (props) => {
     console.log(props.items)
 
     return (
-        <ul>
+        <ul className={classes.projectList}>
             {props.items.map((project) => (
                 <ProjectItem 
                     key={project.id}
