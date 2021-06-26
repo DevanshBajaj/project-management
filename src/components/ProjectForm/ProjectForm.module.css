@@ -10,6 +10,7 @@
     font-weight: bold;
     margin-bottom: 0.5rem;
     display: block;
+    color: rgb(214, 207, 207);
   }
   
   .newProject__control input {
@@ -47,7 +48,7 @@
   .control label {
     font-weight: bold;
     flex: 1;
-    color: #464646;
+    color: rgb(214, 207, 207);
     margin-bottom: 0.5rem;
   }
   
@@ -66,10 +67,14 @@
   }
   
   .control.invalid input {
-    border-color: red;
+    border-color: #CD113B;
     background: #fbdada;
   }
-  
+
+  .control.invalid label {
+    color: #CD113B;
+  }
+
   .actions {
     text-align: center;
   }

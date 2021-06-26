@@ -12,18 +12,19 @@
   .newProject button {
     font: inherit;
     cursor: pointer;
-    padding: 1rem 2rem;
-    border: 1px solid #8739F9;
-    background-color: #8739F9;
+    padding: 1rem 2.5rem;
+    border: 1px solid #CE828E;
+    background-color: #CE828E;
     color: white;
-    border-radius: 12px;
+    border-radius: 6px;
     margin-right: 1rem;
+    margin-top: 1rem;
   }
   
   .newProject button:hover,
   .newProject button:active {
-    background-color: #8739F9;
-    box-shadow: 0 0 0 2px #560dc4;
+    background-color: #ca6c7a;
+    box-shadow: 0 0 0 2px rgba(0, 0, 0, 0.26);
     transition: box-shadow 0.3s ease-in-out;
   }
   .newProject button:focus {
@@ -49,5 +50,5 @@
   
   .newProject button.alternative:hover,
   .newProject button.alternative:active {
-    background-color: #ddb3f8;
+    background-color: #CE828E;
   }

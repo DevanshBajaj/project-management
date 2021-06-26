@@ -4,7 +4,8 @@
     align-items: center;
     padding: 0.5rem;
     margin: 1rem 0.5rem;
-    background-color: #1B1B1B;
+    background-color: #100F0F;
+    border-radius: 12px;
   }
   
   .projectItem__description {
@@ -13,7 +14,7 @@
     gap: 1rem;
     align-items: flex-start;
     flex-flow: column;
-    justify-content: flex-start;
+    justify-content: center;
     flex: 1;
   }
   
@@ -21,7 +22,7 @@
     color: #3a3a3a;
     font-size: 2rem;
     flex: 1;
-    margin: 0 1rem;
+    margin: 0.5rem 1rem;
     color: white;
   }
   .projectItem p {
@@ -29,9 +30,21 @@
     font-size: 1rem;
     flex: 1;
     padding:1rem 1rem;
-    max-width: 80%;
+    max-width: 60%;
     color: white;
   }
+
+  .projectItem button {
+    color: white;
+    background-color: #CD113B;
+    margin: 0.5rem 1rem;
+  }
+
+  .projectItem button:hover {
+    color: white;
+    background-color: #e6254e;
+  }
+  
 
   @media (min-width: 580px) {
     .projectItem__description {

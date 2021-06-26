@@ -15,7 +15,7 @@ const ProjectForm = (props) => {
 		setEnteredTitle(event.target.value);
 
 		setFormIsValid(
-			event.target.value.trim().length > 1 && enteredDescription.trim().length > 15
+			event.target.value.trim().length > 0 && enteredDescription.trim().length > 149
 		);
 	};
 
@@ -23,16 +23,16 @@ const ProjectForm = (props) => {
 		setEnteredDescription(event.target.value);
 
 		setFormIsValid(
-			event.target.value.trim().length > 15 && enteredTitle.trim().length > 1
+			event.target.value.trim().length > 149 && enteredTitle.trim().length > 0
 		);
 	};
 
 	const validateTitleHandler = () => {
-		setTitleIsValid(enteredTitle.trim().length > 1)
+		setTitleIsValid(enteredTitle.trim().length > 0)
 		console.log(selectedImage)
 	}
 	const validateDescription = () => {
-		setDescriptionIsValid(enteredDescription.trim().length > 15)
+		setDescriptionIsValid(enteredDescription.trim().length > 149)
 	}
 
 	const imageChangedHandler = (event) => {
@@ -93,7 +93,7 @@ const ProjectForm = (props) => {
 							descriptionIsValid === false ? classes.invalid : ''
 						}`}
         			>
-					<label>description</label>
+					<label>Description</label>
 					<input
 						type="text"
 						value={enteredDescription}
@@ -104,7 +104,7 @@ const ProjectForm = (props) => {
 				</div>
 				<div className={classes.newProject__control}>
 					<label htmlFor="img" >Upload Image</label>
-					<input
+					<input id="file"
 						type="file"
 						name="img" accept="image/*"
 						onChange={imageChangedHandler}
@@ -115,9 +115,9 @@ const ProjectForm = (props) => {
 							<img style={{height:"250px", width:"280px"}} src={selectedImage} alt=""></img>
 						</div>
 					) : (
-						<p style={{color: 'red'}}>Please upload image file</p>
+						<p style={{color: '#CD113B', paddingTop: '1rem'}}>Please upload an image file</p>
 					)}
-						<Button type="button" onClick={uploadHandler}>upload</Button>
+						<Button type="button" onClick={uploadHandler}>Upload</Button>
 				</div>
 			</div>
 

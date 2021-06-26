@@ -22,7 +22,7 @@ const DUMMY_PROJECTS = [
   {
     id: "e4",
     title: "portfolio",
-    description: 'Made with CSS/JS',
+    description: 'Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in Bookmarks',
     image: ''
   },
 ];

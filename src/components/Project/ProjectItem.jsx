@@ -19,7 +19,7 @@ const ProjectItem = (props) => {
                 ) : (
                     <p>No image</p>
                 )}
-                <Button style={{background: 'red'}} onClick={deleteProject}>Delete Item</Button>
+                <Button onClick={deleteProject}>Delete Item</Button>
             </li>
         </Card>
     )

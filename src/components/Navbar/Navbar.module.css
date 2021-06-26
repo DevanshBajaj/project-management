@@ -4,7 +4,7 @@
     padding-bottom: 1rem;
     display: flex;
     justify-content: space-evenly;
-    border-bottom: 2px solid #8739F9 ;
+    border-bottom: 2px solid #CE828E ;
   }
   
   .nav a {
@@ -23,8 +23,8 @@
   
   .nav button {
     font: inherit;
-    background: #8739F9;
-    border: 1px solid #8739F9;
+    background: #CE828E;
+    border: 1px solid #CE828E;
     padding: 0.5rem 1rem;
     color: white;
     cursor: pointer;
