@@ -37,7 +37,6 @@ function App() {
     setProjects((prevProjects) => {
       return [project, ...prevProjects]
     })
-    console.log(...projects)
   }
 
   const deleteProjectHandler = projectId => {
