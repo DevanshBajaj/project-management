@@ -15,14 +15,14 @@ const DUMMY_PROJECTS = [
   },
   {
     id: "e3",
-    title: "streaming site",
-    description: 'Made with React',
+    title: "Streaming site",
+    description: 'Designed using figma',
     image: ''
   },
   {
     id: "e4",
-    title: "portfolio",
-    description: 'Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in Bookmarks',
+    title: "Portfolio",
+    description: 'Made with vanilla HTML/CSS/Javascript',
     image: ''
   },
 ];

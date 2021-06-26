@@ -32,17 +32,20 @@
     padding:1rem 1rem;
     max-width: 60%;
     color: white;
+    text-align: left;
   }
 
   .projectItem button {
     color: white;
     background-color: #CD113B;
+    border-color: #e6254e;
     margin: 0.5rem 1rem;
   }
 
   .projectItem button:hover {
     color: white;
     background-color: #e6254e;
+    border-color: #e6254e;
   }
   
 
