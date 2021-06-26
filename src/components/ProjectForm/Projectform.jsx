@@ -29,7 +29,6 @@ const ProjectForm = (props) => {
 
 	const validateTitleHandler = () => {
 		setTitleIsValid(enteredTitle.trim().length > 0)
-		console.log(selectedImage)
 	}
 	const validateDescription = () => {
 		setDescriptionIsValid(enteredDescription.trim().length > 149)
