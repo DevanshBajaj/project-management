@@ -21,7 +21,6 @@ const ProjectForm = (props) => {
 
 	const descriptionChangeHandler = (event) => {
 		setEnteredDescription(event.target.value);
-
 		setFormIsValid(
 			event.target.value.trim().length > 149 && enteredTitle.trim().length > 0
 		);
@@ -84,6 +83,7 @@ const ProjectForm = (props) => {
 						onChange={titleChangeHandler}
 						onBlur={validateTitleHandler}
 					/>
+					<p>Title should be more than one character</p>
 					</div>
 				</div>
 				<div className={classes.newProject__control}>
@@ -99,6 +99,7 @@ const ProjectForm = (props) => {
 						onChange={descriptionChangeHandler}
 						onBlur={validateDescription}
 					/>
+					<p>Description should be more than 150 character</p>
 					</div>
 				</div>
 				<div className={classes.newProject__control}>
@@ -114,7 +115,7 @@ const ProjectForm = (props) => {
 							<img style={{height:"250px", width:"280px"}} src={selectedImage} alt=""></img>
 						</div>
 					) : (
-						<p style={{color: '#CD113B', paddingTop: '1rem'}}>Please upload an image file</p>
+						<p style={{color: '#CD113B', paddingTop: '0.5rem'}}>Please upload an image file</p>
 					)}
 						<Button type="button" onClick={uploadHandler}>Upload</Button>
 				</div>

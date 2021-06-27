@@ -21,6 +21,10 @@
     width: 20rem;
     max-width: 100%;
   }
+  .newProject__control p {
+    padding-top: 0.5rem;
+    font-size: smaller;
+  }
   
   .newProject__actions {
     text-align: right;
