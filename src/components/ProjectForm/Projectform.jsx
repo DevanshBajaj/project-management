@@ -104,7 +104,7 @@ const ProjectForm = (props) => {
 				</div>
 				<div className={classes.newProject__control}>
 					<label htmlFor="img" >Upload Image</label>
-					<input id="file"
+					<input id='fileUpload'
 						type="file"
 						name="img" accept="image/*"
 						onChange={imageChangedHandler}

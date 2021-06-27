@@ -21,6 +21,35 @@
     width: 20rem;
     max-width: 100%;
   }
+  input[type=file]::-webkit-file-upload-button {
+    border: 2px solid #CE828E;
+    font: inherit;
+    padding: .2em .4em;
+    color: white;
+    border-radius: .2em;
+    background-color: #CE828E;
+  }
+  
+  input[type=file]::file-selector-button {
+    font: inherit;
+    border: 2px solid #CE828E;
+    padding: .2em .4em;
+    color: white;
+    border-radius: .2em;
+    background-color: #CE828E;
+  }
+  
+  input[type=file]::-webkit-file-upload-button:hover {
+    background-color: #ca6c7a;
+    box-shadow: 0 0 0 2px rgba(0, 0, 0, 0.26);
+    transition: box-shadow 0.3s ease-in-out;
+  }
+  input[type=file]::file-selector-button:hover {
+    background-color: #ca6c7a;
+    box-shadow: 0 0 0 2px rgba(0, 0, 0, 0.26);
+    transition: box-shadow 0.3s ease-in-out;
+  }
+  
   .newProject__control p {
     padding-top: 0.5rem;
     font-size: smaller;
@@ -66,13 +95,16 @@
   
   .control input:focus {
     outline: none;
-    border-color: #4f005f;
-    background: #f6dbfc;
+    border-color: #e2d8da;
+    background: #f0dbde;
   }
   
   .control.invalid input {
     border-color: #CD113B;
     background: #fbdada;
+  }
+  .control.invalid p {
+    color: #CD113B
   }
 
   .control.invalid label {
